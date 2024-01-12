@@ -1,11 +1,11 @@
 {
-  "name": "http-message-signatures",
+  "name": "@offblocks/http-message-signatures",
   "version": "1.0.1",
   "description": "HTTP message signature implementation",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && webpack --mode production",
     "lint": "eslint -c .eslintrc ./src/**/*.ts ./test/**/*.ts",
     "lint:fix": "npm run lint --silent -- --fix",
     "prepare": "npm run build",
@@ -15,14 +15,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/dhensby/node-http-message-signatures.git"
+    "url": "git+ssh://git@github.com/offblocks/node-http-message-signatures.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "keywords": [
     "http-message-signatures",
     "message-signatures",
     "signature"
   ],
-  "author": "Daniel Hensby",
+  "author": "OffBlocks",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dhensby/node-http-message-signatures/issues"
@@ -48,18 +51,75 @@
     "@types/sinon-chai": "^3.2.8",
     "@typescript-eslint/eslint-plugin": "^6.2.1",
     "@typescript-eslint/parser": "^6.2.1",
+    "buffer": "^6.0.3",
     "chai": "^4.3.6",
+    "constants-browserify": "^1.0.0",
+    "crypto-browserify": "^3.12.0",
     "eslint": "^8.24.0",
     "mocha": "^10.0.0",
     "mockdate": "^3.0.5",
     "nyc": "^15.1.0",
+    "process": "^0.11.10",
     "semantic-release": "^21.0.7",
     "sinon": "^15.2.0",
     "sinon-chai": "^3.7.0",
+    "stream-browserify": "^3.0.0",
     "ts-node": "^10.9.1",
-    "typescript": "^5.0.3"
+    "typescript": "^5.0.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
   },
   "dependencies": {
     "structured-headers": "^1.0.1"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "not ie 11",
+    "not op_mini all"
+  ],
+  "engines": {
+    "npm": ">=6",
+    "node": ">= 14"
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/changelog",
+      "@semantic-release/git",
+      "@semantic-release/npm",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            "lib/**/*.min.js"
+          ]
+        }
+      ],
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "angular",
+          "releaseRules": [
+            {
+              "type": "docs",
+              "scope": "README",
+              "release": "patch"
+            },
+            {
+              "type": "refactor",
+              "release": "patch"
+            },
+            {
+              "type": "style",
+              "release": "patch"
+            },
+            {
+              "type": "ci",
+              "release": "patch"
+            }
+          ]
+        }
+      ]
+    ]
   }
 }
