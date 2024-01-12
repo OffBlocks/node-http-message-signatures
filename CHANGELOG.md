@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/offblocks/node-http-message-signatures/compare/v1.1.1...v1.2.0) (2024-01-12)
+
+
+### Features
+
+* use undecoded [@path](https://github.com/path) and [@query](https://github.com/query) according to the spec ([#4](https://github.com/offblocks/node-http-message-signatures/issues/4)) ([fbb4611](https://github.com/offblocks/node-http-message-signatures/commit/fbb4611bb203c80f5da60369d9761341b08d4b59))
+
 ## [1.1.1](https://github.com/offblocks/node-http-message-signatures/compare/v1.1.0...v1.1.1) (2024-01-12)
 
 
