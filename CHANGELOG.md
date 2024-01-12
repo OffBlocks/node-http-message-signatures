@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/offblocks/node-http-message-signatures/compare/v1.1.0...v1.1.1) (2024-01-12)
+
+
+### Bug Fixes
+
+* using specification algorithm for ECDSA signatures (IEEE-P1363 format) ([#3](https://github.com/offblocks/node-http-message-signatures/issues/3)) ([b51ed06](https://github.com/offblocks/node-http-message-signatures/commit/b51ed064ead14c5509f010376e5471df5846d76c))
+
 # [1.1.0](https://github.com/offblocks/node-http-message-signatures/compare/v1.0.1...v1.1.0) (2024-01-12)
 
 
